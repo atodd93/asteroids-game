@@ -49,7 +49,7 @@ def main():
                 return
             for shot in shots:
                 if asteroid.is_colliding(shot):
-                    asteroid.kill()
+                    asteroid.split()
 
         # this is a refresh of screen, the very last thing to be done
         dt = clock.tick(60) / 1000
