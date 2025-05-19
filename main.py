@@ -15,12 +15,21 @@ def main():
     dt = 0
     x = SCREEN_WIDTH / 2
     y = SCREEN_HEIGHT / 2
+
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+
+    Player.containers = (updatable, drawable)
+
     player = Player(x, y)
     
     while True:
         screen.fill((0, 0, 0))
-        player.update(dt)
-        player.draw(screen)
+
+        for unit in drawable:
+            unit.draw(screen)
+        
+        updatable.update(dt)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
