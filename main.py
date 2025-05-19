@@ -40,6 +40,11 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+        
+        for asteroid in asteroids:
+            if asteroid.is_colliding(player):
+                print("Game over!")
+                return
 
         # this is a refresh of screen, the very last thing to be done
         dt = clock.tick(60) / 1000
